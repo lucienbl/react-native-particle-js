@@ -6,7 +6,7 @@ export const ParticlesView = (props) => {
     return (
       <View style={styles.containerStyle}>
         <WebView
-                    source={require('./widget/particles.html')}
+                    source={Platform.OS === 'ios' ? require('./widget/particles.html') : { uri: "file:///android_asset/html/particles/particles.html" }}
                     style={{ flex: 1, zIndex: 0 }}/>
         <View   style={[{ position: 'absolute', top: 0, bottom: 0, right: 0, left: 0, zIndex: 1 },props.containerStyle]}>
              {props.children}
@@ -23,5 +23,5 @@ export const ParticlesView = (props) => {
 
 
 
-  
+
 
